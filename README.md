@@ -19,7 +19,7 @@ Heute habe ich mir zunächst überlegt, was ich in dieser Lernperiode Programmie
 
 - [ ] Struktur: Offline weiter darüber Nachdenken welche Klassen noch benötigt werden und anschliessend mit der Festlegung der Klasseninternen Struktur beginnen
 - [ ] Painter: Beginn der grundlegenden Implementation der Painter-Klasse (Draw-Funktion). Ausführliches Testen mit verschiedensten Formen, Bugs finden und beheben
-- [ ] DRY-Prinzip: Repetitive Stellen finden und in Methoden/Funktionen auslagern
+- [ ] DRY-Prinzip: Redundante Stellen finden und in Methoden/Funktionen auslagern
 
 ✍️ Heute habe ich... (50-100 Wörter)
 
