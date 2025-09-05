@@ -12,6 +12,8 @@ namespace CaffeineRacer
         private Renderer renderer;
         private InputHandler inputHandler;
 
+        Random random = new Random();
+
         public void Run()
         {
             //Game Loop
@@ -19,7 +21,8 @@ namespace CaffeineRacer
 
         public void Initialize()
         {
-            //Init Logic
+            renderer = new Renderer();
+            coffeeBeans = new List<CoffeeBean>();
         }
 
         public void HandleInput()
@@ -34,7 +37,12 @@ namespace CaffeineRacer
 
         public void Render()
         {
-            //Draw Game
+            SpawnCoffeeBean();
+            foreach (CoffeeBean coffeeBean in coffeeBeans)
+            {
+                coffeeBean.Render(renderer);
+            }
+            renderer.Present();
         }
 
         private void CheckCollisions()
@@ -44,7 +52,9 @@ namespace CaffeineRacer
 
         private void SpawnCoffeeBean()
         {
-            //Spawn a Coffee Bean
+            int x = random.Next(50, renderer.Width-50);
+            int y = 0;
+            coffeeBeans.Add(new CoffeeBean(x, y));
         }
     }
 }

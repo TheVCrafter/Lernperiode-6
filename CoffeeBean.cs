@@ -8,10 +8,16 @@ namespace CaffeineRacer
 {
     internal class CoffeeBean
     {
-        float X;
-        float Y;
+        int X;
+        int Y;
         float CaffeineValue;
         float BoostValue;
+
+        public CoffeeBean(int x, int y)
+        {
+            X = x;
+            Y = y;
+        }
         public void Update(float dt)
         {
 
@@ -19,7 +25,7 @@ namespace CaffeineRacer
 
         public void Render(Renderer r)
         {
-
+            r.DrawCoffeeBean(X, Y);
         }
     }
 }

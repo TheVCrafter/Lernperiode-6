@@ -9,11 +9,11 @@ namespace CaffeineRacer
 {
     internal class Car
     {
-        protected float X;
-        protected float Y;
+        protected int X;
+        protected int Y;
         protected float Speed;
 
-        public void Update(float dt)
+        public virtual void Update(float dt)
         {
 
         }

@@ -8,8 +8,8 @@ namespace CaffeineRacer
 {
     internal enum GameState
     {
-        Running
-        Paused
+        Running,
+        Paused,
         GameOver
     }
 }
