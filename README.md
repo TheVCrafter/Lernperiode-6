@@ -163,9 +163,8 @@ Ausgabe in der Konsole:
 <img width="1115" height="628" alt="image" src="https://github.com/user-attachments/assets/cb3442cb-35d0-4258-883d-aeb45d1d5940" />
 
 Die Designs von "RSR Pixel Art welche ich für mein Spiel verwenden möchte:
-<img width="297" height="668" alt="image" src="https://github.com/user-attachments/assets/cb427b5c-122b-465d-a6a0-fd4c0cbecc5a" />
-<img width="297" height="667" alt="image" src="https://github.com/user-attachments/assets/344e5ea2-c074-493f-9980-e45401946cf0" />
-<img width="233" height="525" alt="image" src="https://github.com/user-attachments/assets/96496864-cced-4fc4-8648-3e4e264e040d" />
+
+
 
 # 19.09.
 
