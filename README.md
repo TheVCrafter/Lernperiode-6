@@ -166,9 +166,7 @@ Ausgabe in der Konsole:
 
 Die Designs von "RSR Pixel Art welche ich für mein Spiel verwenden möchte:
 
-<img width="233" height="525" alt="Car1" src="Car1.png"/>
-<img width="233" height="525" alt="Car2" src="Car2.png"/>
-<img width="233" height="525" alt="Car3" src="Car3.png"/>
+<img width="233" height="525" alt="Car1" src="Car1.png"/> <img width="233" height="525" alt="Car2" src="Car2.png"/> <img width="233" height="525" alt="Car3" src="Car3.png"/>
 
 # 19.09.
 
