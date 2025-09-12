@@ -23,8 +23,8 @@ Heute habe ich mir zunächst überlegt, was ich in dieser Lernperiode Programmie
 
 Heute habe ich grösstenteils an der Code-Strukur des Spiels gearbeitet. Zunächst habe ich gut eine Stunde offline nochmals darüber nachgedacht welche weiteren Klassen noch benötigt werden und welche Funktionen und Eigenschaften diese dann jeweils erhalten. Ausserdem habe ich versucht die bereits bestehenden Klassen noch weiter zu verbessern. Ich habe sie also teilweise umbenannt und auch die Funktionalitäten überarbeitet. Dann begann ich damit die verbesserte Struktur in mein Projekt zu übernehmen und codierte auch bereits die Grundfunktion des Timers. Für weiteres reichte es mir Zeitlich leider nicht aber ich bin allgemein sehr zufrieden mit dem fortschritt den ich machen konnte.
 
-![Struktur1](struktur1.jpeg)
-![Struktur2](struktur2.jpeg)
+<img height="525" alt="Struktur1" src="struktur1.jpeg"/>
+<img height="525" alt="Struktur2" src="struktur2.jpeg"/>
 
 ## 5.9
 
@@ -88,8 +88,8 @@ In der Konsole:
 ![CoffeeBeanConsole](CoffeeBeanInConsole.png)
 Ansonsten arbeitete ich auch noch offline daran, einen grundlegenden Programmablauf für mein Programm zu zeichnen.
 
-![Programmablauf1](Programmablauf1.jpeg)
-![Programmablauf2](Programmablauf2.jpeg)
+<img height="525" alt="Programmablauf1" src="Programmablauf1.jpeg"/>
+<img height="525" alt="Programmablauf2" src="Programmablauf2.jpeg"/>
 
 ## 12.09.
 
@@ -160,11 +160,15 @@ Der bisherige Code in der `Renderer`-Class zum rendern der Kaffebohne und der Tr
  }
 ```
 Ausgabe in der Konsole:
-<img width="1115" height="628" alt="image" src="https://github.com/user-attachments/assets/cb3442cb-35d0-4258-883d-aeb45d1d5940" />
+
+<img width="1115" height="628" alt="Screenshot 2025-09-12 102840" src="https://github.com/user-attachments/assets/30b5b23c-de0c-4c87-aa4b-c3a8f723c2e0" />
+
 
 Die Designs von "RSR Pixel Art welche ich für mein Spiel verwenden möchte:
 
-
+<img width="233" height="525" alt="Car1" src="Car1.png"/>
+<img width="233" height="525" alt="Car2" src="Car2.png"/>
+<img width="233" height="525" alt="Car3" src="Car3.png"/>
 
 # 19.09.
 
