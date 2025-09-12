@@ -20,7 +20,7 @@ namespace CaffeineRacer
         }
         public void Update(float dt)
         {
-
+            X += 1;
         }
 
         public void Render(Renderer r)

@@ -22,7 +22,9 @@ namespace CaffeineRacer
         public void Initialize()
         {
             renderer = new Renderer();
+            track = new Track();
             coffeeBeans = new List<CoffeeBean>();
+            SpawnCoffeeBean();
         }
 
         public void HandleInput()
@@ -37,23 +39,28 @@ namespace CaffeineRacer
 
         public void Render()
         {
-            SpawnCoffeeBean();
-            foreach (CoffeeBean coffeeBean in coffeeBeans)
+            while (true)
             {
-                coffeeBean.Render(renderer);
+                track.Render(renderer);
+                foreach (CoffeeBean coffeeBean in coffeeBeans)
+                {
+                    coffeeBean.Render(renderer);
+                }
+                renderer.Present();
+                Thread.Sleep(1000);
             }
-            renderer.Present();
         }
 
         private void CheckCollisions()
         {
             //Check for Collisions
+            SpawnCoffeeBean();
         }
 
         private void SpawnCoffeeBean()
         {
             int x = random.Next(50, renderer.Width-50);
-            int y = 0;
+            int y = 5;
             coffeeBeans.Add(new CoffeeBean(x, y));
         }
     }
