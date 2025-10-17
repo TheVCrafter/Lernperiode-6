@@ -8,7 +8,7 @@ namespace CaffeineRacer
         {
             Game game = new Game();
             game.Initialize();
-            game.Render();
+            game.Run();
             /*game.Run();*/             
         }
     }

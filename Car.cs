@@ -9,10 +9,10 @@ namespace CaffeineRacer
 {
     internal class Car
     {
+        private bool _randomTeam = true;
         protected int X;
         protected int Y;
         protected float Speed;
-
         public virtual void Update(float dt)
         {
 
@@ -20,7 +20,6 @@ namespace CaffeineRacer
 
         public void Render(Renderer r)
         {
-
         }
     }
 }

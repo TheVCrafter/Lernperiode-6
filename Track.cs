@@ -1,17 +1,40 @@
-﻿namespace CaffeineRacer
+﻿using CaffeineRacer;
+
+internal class Track
 {
-    internal class Track
+    private string MapCurbColor(int logicalRow, int offset, Renderer r)
     {
-        public int Offset { get; private set; } = 0;
+        int rowsPerStripe = 4;
 
-        public void Render(Renderer r)
+        // Subtract offset so the stripes move downward
+        int stripeIndex = ((logicalRow - offset) + rowsPerStripe * 2) / rowsPerStripe;
+
+        return stripeIndex % 2 == 0 ? r.Colors["CURB_WHITE"] : r.Colors["CURB_RED"];
+    }
+
+    private string MapTrackColor(Renderer r)
+    {
+        return r.Colors["ASPHALT_DARK"];
+    }
+
+    public void Render(Renderer r, int offset)
+    {
+        int logicalRows = r.Height * 2;
+        int width = r.Width;
+
+        for (int row = 0; row < logicalRows; row++)
         {
-            r.DrawTrack(Offset);
-            Offset++;
-
-            if (Offset == 4)
+            for (int b = 0; b < 3; b++)
             {
-                Offset = 0;
+                string curbColor = MapCurbColor(row, offset, r);
+                r.SetPixel(10 + b, row, curbColor);
+                r.SetPixel(width - 11 - b, row, curbColor);
+            }
+
+            string trackColor = MapTrackColor(r);
+            for (int x = 13; x < width - 13; x++)
+            {
+                r.SetPixel(x, row, trackColor);
             }
         }
     }
