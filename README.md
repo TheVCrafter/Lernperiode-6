@@ -178,7 +178,7 @@ Die Designs von "RSR Pixel Art welche ich für mein Spiel verwenden möchte:
 Heute habe ich mich vor allem auf die Optimierung meines Renderers konzentriert und die bisherigen Fortschritte am Spiel weiter ausgebaut. Ich habe Multithreading implementiert, den 2-Pixel-Support mit Foreground- und Background-Farben vollständig ausgebaut und verschiedene Bugs beim Scrollen der Strecke behoben, die zuletzt noch auftraten, wie falsche Verschiebungen bestimmter Curbs oder ungenaue Scrollrichtungen. Zudem habe ich die bisherigen Arbeiten an den Autos weitergeführt und zunächst das Spielerauto gepixelt. Die Steuerung des Spielerautos mit den Tasten A und D funktioniert nun zuverlässig, inklusive stabiler Tastenerkennung. Es gibt jedoch noch einen Bug: Das Spielerauto wird aktuell nur halb angezeigt.
 
 Die Aktuelle Ausgabe in der Konsole:
-<img width="233" height="525" alt="Car1" src="Rendering.gif"/>
+<img width="233" height="525" alt="RenderingScr" src="Rendering.gif"/>
 
 Ein wichtiger Schritt war die Überarbeitung der Renderer-Klasse: Ich habe ein Farben-Dictionary erstellt, um die wichtigsten Farben zentral zu speichern, was das "Pixeln" von Spielelementen erheblich erleichtert und den Code übersichtlicher macht. Das Rendering erfolgt nun nicht mehr direkt im Renderer, sondern in der `Render()`-Methode der jeweiligen Klasse, wodurch die Code-Struktur deutlich sauberer und wartungsfreundlicher geworden ist. Der Renderer unterstützt jetzt auch den 2-Pixel-pro-Zeile-Modus, was die Darstellung der Spielwelt verbessert.
 Das in der `Renderer`-Class erstellte Dictionary:
@@ -257,7 +257,7 @@ Colors = new Dictionary<string, string>()
     { "ALPHATAURI_WHITE", "2;255;255;255m" }
 };
 ```
-PS: Da ich mit dem Projekt noch nicht ganz fertig bin und ich ausserdem Krankheitsbedingt am 19.09.2025 daran nicht arbeiten konnte, habe ich mir vorgenommen, das Projekt innerhalb der nächsten Woche komplett abzuschliessen.
+**PS:** Da ich mit dem Projekt noch nicht ganz fertig bin und ich ausserdem Krankheitsbedingt am 19.09.2025 daran nicht arbeiten konnte, habe ich mir vorgenommen, das Projekt innerhalb der nächsten Woche komplett abzuschliessen.
 
 ## 17.10 - 24.10
 - [ ] **Player-Car-Bug beheben:** Spielerauto wird aktuell nur halb angezeigt; Höhe und 2-Pixel-Pro-Zeile-Modus prüfen und korrigieren.  
