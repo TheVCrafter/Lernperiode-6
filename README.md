@@ -168,10 +168,96 @@ Die Designs von "RSR Pixel Art welche ich für mein Spiel verwenden möchte:
 
 <img width="233" height="525" alt="Car1" src="Car1.png"/> <img width="233" height="525" alt="Car2" src="Car2.png"/> <img width="233" height="525" alt="Car3" src="Car3.png"/>
 
-# 19.09.
+# 17.10.
 
-- [ ] **Autos:** Verschiedene Autos in der `DrawCar`-Methode der `Renderer`-Klasse implementieren, nach dem gleichen Prinzip wie die Kaffeebohne und die Rennbahn.  
-- [ ] **Spielerauto-Steuerung:** Spielerauto mit den Tasten `A` (links) und `D` (rechts) bewegen; Methode zur Tastenerkennung implementieren.  
+- [X] **Autos:** Verschiedene Autos in der `DrawCar`-Methode der `Renderer`-Klasse implementieren, nach dem gleichen Prinzip wie die Kaffeebohne und die Rennbahn.  
+- [X] **Spielerauto-Steuerung:** Spielerauto mit den Tasten `A` (links) und `D` (rechts) bewegen; Methode zur Tastenerkennung implementieren.  
 - [ ] **Kollisionserkennung:** Kollisionen zwischen Spielerauto, Gegnerautos und Kaffeebohnen erkennen und entsprechend reagieren.  
 - [ ] **Müdigkeitslevel:** Geschwindigkeit des Spielerautos abhängig von Müdigkeit anpassen; Kaffeebohnen-Konsum erhöht Geschwindigkeit; einfache Anzeige des aktuellen Müdigkeitslevels implementieren.
+
+# Projekttagebuch – Renderer-Optimierung und Spielerauto
+
+Heute habe ich mich vor allem auf die Optimierung meines Renderers konzentriert und die bisherigen Fortschritte am Spiel weiter ausgebaut. Ich habe Multithreading implementiert, den 2-Pixel-Support mit Foreground- und Background-Farben vollständig ausgebaut und verschiedene Bugs beim Scrollen der Strecke behoben, die zuletzt noch auftraten, wie falsche Verschiebungen bestimmter Curbs oder ungenaue Scrollrichtungen. Zudem habe ich die bisherigen Arbeiten an den Autos weitergeführt und zunächst das Spielerauto gepixelt. Die Steuerung des Spielerautos mit den Tasten A und D funktioniert nun zuverlässig, inklusive stabiler Tastenerkennung. Es gibt jedoch noch einen Bug: Das Spielerauto wird aktuell nur halb angezeigt.
+
+Die Aktuelle Ausgabe in der Konsole:
+<img width="233" height="525" alt="Car1" src="Rendering.gif"/>
+
+Ein wichtiger Schritt war die Überarbeitung der Renderer-Klasse: Ich habe ein Farben-Dictionary erstellt, um die wichtigsten Farben zentral zu speichern, was das "Pixeln" von Spielelementen erheblich erleichtert und den Code übersichtlicher macht. Das Rendering erfolgt nun nicht mehr direkt im Renderer, sondern in der `Render()`-Methode der jeweiligen Klasse, wodurch die Code-Struktur deutlich sauberer und wartungsfreundlicher geworden ist. Der Renderer unterstützt jetzt auch den 2-Pixel-pro-Zeile-Modus, was die Darstellung der Spielwelt verbessert.
+Das in der `Renderer`-Class erstellte Dictionary:
+```C#
+Colors = new Dictionary<string, string>()
+{
+    // Environment
+    { "GRASS_DARK", "2;0;100;0m" },
+    { "GRASS_MEDIUM", "2;0;150;0m" },
+    { "GRASS_LIGHT", "2;0;200;0m" },
+    { "ASPHALT_DARK", "2;50;50;50m" },
+    { "ASPHALT_MEDIUM", "2;100;100;100m" },
+    { "ASPHALT_LIGHT", "2;150;150;150m" },
+
+    // Track Curbs
+    { "CURB_RED", "2;255;0;0m" },
+    { "CURB_YELLOW", "2;255;215;0m" },
+    { "CURB_WHITE", "2;255;255;255m" },
+
+    // Coffee Beans
+    { "COFFEE_LIGHT", "2;141;68;17m" },
+    { "COFFEE_MEDIUM", "2;99;51;15m" },
+    { "COFFEE_DARK", "2;64;30;5m" },
+
+    // General colors
+    { "BLACK", "2;0;0;0m" },
+    { "WHITE", "2;255;255;255m" },
+
+    // Ferrari
+    { "FERRARI_DARK_RED", "2;130;23;41m" },
+    { "FERRARI_RED", "2;232;0;45m" },
+    { "FERRARI_LIGHT_RED", "2;255;76;106m" },
+    { "FERRARI_YELLOW", "2;255;221;0m" },
+    { "FERRARI_WHITE", "2;255;255;255m" },
+
+    // Mercedes
+    { "MERCEDES_DARK_GRAY", "2;60;60;60m" },
+    { "MERCEDES_GRAY", "2;128;128;128m" },
+    { "MERCEDES_LIGHT_GRAY", "2;192;192;192m" },
+    { "MERCEDES_TURQUOISE", "2;0;215;182m" },
+
+    // Red Bull Racing
+    { "RED_BULL_RED", "2;218;41;28m" },
+    { "RED_BULL_DARK_BLUE", "2;0;0;139m" },
+    { "RED_BULL_BLUE", "2;71;129;215m" },
+    { "RED_BULL_LIGHT_BLUE", "2;173;216;230m" },
+    { "RED_BULL_YELLOW", "2;255;215;0m" },
+
+    // McLaren
+    { "MCLAREN_ORANGE", "2;255;128;0m" },
+    { "MCLAREN_WHITE", "2;255;255;255m" },
+
+    // Alpine
+    { "ALPINE_BLUE", "2;0;161;232m" },
+    { "ALPINE_RED", "2;255;0;0m" },
+    { "ALPINE_WHITE", "2;255;255;255m" },
+
+    // Aston Martin
+    { "ASTON_MARTIN_GREEN", "2;34;153;113m" },
+    { "ASTON_MARTIN_WHITE", "2;255;255;255m" },
+
+    // Williams
+    { "WILLIAMS_BLUE", "2;24;104;219m" },
+    { "WILLIAMS_WHITE", "2;255;255;255m" },
+
+    // Alfa Romeo
+    { "ALFA_ROMEO_RED", "2;186;0;0m" },
+    { "ALFA_ROMEO_WHITE", "2;255;255;255m" },
+
+    // Haas
+    { "HAAS_RED", "2;186;0;0m" },
+    { "HAAS_WHITE", "2;255;255;255m" },
+
+    // AlphaTauri
+    { "ALPHATAURI_BLUE", "2;0;0;255m" },
+    { "ALPHATAURI_WHITE", "2;255;255;255m" }
+};
+        }
+```
 
