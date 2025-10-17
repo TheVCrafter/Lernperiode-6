@@ -175,8 +175,6 @@ Die Designs von "RSR Pixel Art welche ich für mein Spiel verwenden möchte:
 - [ ] **Kollisionserkennung:** Kollisionen zwischen Spielerauto, Gegnerautos und Kaffeebohnen erkennen und entsprechend reagieren.  
 - [ ] **Müdigkeitslevel:** Geschwindigkeit des Spielerautos abhängig von Müdigkeit anpassen; Kaffeebohnen-Konsum erhöht Geschwindigkeit; einfache Anzeige des aktuellen Müdigkeitslevels implementieren.
 
-# Projekttagebuch – Renderer-Optimierung und Spielerauto
-
 Heute habe ich mich vor allem auf die Optimierung meines Renderers konzentriert und die bisherigen Fortschritte am Spiel weiter ausgebaut. Ich habe Multithreading implementiert, den 2-Pixel-Support mit Foreground- und Background-Farben vollständig ausgebaut und verschiedene Bugs beim Scrollen der Strecke behoben, die zuletzt noch auftraten, wie falsche Verschiebungen bestimmter Curbs oder ungenaue Scrollrichtungen. Zudem habe ich die bisherigen Arbeiten an den Autos weitergeführt und zunächst das Spielerauto gepixelt. Die Steuerung des Spielerautos mit den Tasten A und D funktioniert nun zuverlässig, inklusive stabiler Tastenerkennung. Es gibt jedoch noch einen Bug: Das Spielerauto wird aktuell nur halb angezeigt.
 
 Die Aktuelle Ausgabe in der Konsole:
@@ -258,6 +256,18 @@ Colors = new Dictionary<string, string>()
     { "ALPHATAURI_BLUE", "2;0;0;255m" },
     { "ALPHATAURI_WHITE", "2;255;255;255m" }
 };
-        }
 ```
+PS: Da ich mit dem Projekt noch nicht ganz fertig bin und ich ausserdem Krankheitsbedingt am 19.09.2025 daran nicht arbeiten konnte, habe ich mir vorgenommen, das Projekt innerhalb der nächsten Woche komplett abzuschliessen.
 
+## 17.10 - 24.10
+- [ ] **Player-Car-Bug beheben:** Spielerauto wird aktuell nur halb angezeigt; Höhe und 2-Pixel-Pro-Zeile-Modus prüfen und korrigieren.  
+- [ ] **Kollisionserkennung:** Kollisionen zwischen Spielerauto, Gegnerautos und Kaffeebohnen erkennen und entsprechend reagieren.  
+- [ ] **Weitere Autos:** Mindestens ein weiteres Gegnerauto designen, pixeln und in die `DrawCar`-Methode der `Renderer`-Klasse implementieren.  
+- [ ] **Performance testen:** Den aktuellen Renderer mit Multithreading und 2-Pixel-Support auf mögliche Performance-Probleme prüfen und ggf. optimieren.  
+- [ ] **Müdigkeitslevel implementieren:** Geschwindigkeit des Spielerautos abhängig von Müdigkeit anpassen; Kaffeebohnen-Konsum erhöht Geschwindigkeit; Anzeige des aktuellen Levels integrieren.  
+- [ ] **Gegnerautos-Bewegung:** Gegnerautos auf der Rennbahn bewegen und Kollisionsmöglichkeiten mit Spielerauto berücksichtigen.  
+- [ ] **Punkte- und Sammelsystem:** Punkte für eingesammelte Kaffeebohnen oder überholte Gegnerautos einführen und in der UI anzeigen.  
+- [ ] **Menü & Startbildschirm:** Einfaches Startmenü mit Spielstart, evtl. Spielende-Bildschirm und Neustart-Option implementieren.  
+- [ ] **Soundeffekte / Feedback:** Einfache Audio- oder visuelle Effekte für Kollisionen, Punkte und Geschwindigkeitsänderungen hinzufügen.  
+- [ ] **Endtest & Bugfixing:** Das gesamte Spiel durchtesten, alle Bugs beheben und sicherstellen, dass alles stabil läuft.
+- [ ] **Reflexion schreiben:** Eigene Erfahrungen, Herausforderungen und Learnings aus dem Projekt zusammenfassen.
